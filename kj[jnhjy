@@ -1,0 +1,38 @@
+#include <SFML/Graphics.hpp>
+using namespace sf;
+int main()
+{
+    float speed = 200;
+    // Объект, который, собственно, является главным окном приложения
+    RenderWindow window(VideoMode(640, 480), "SFML Works!");
+
+    // Главный цикл приложения. Выполняется, пока открыто окно
+    while (window.isOpen()) {
+        // Обрабатываем очередь событий в цикле
+        Event event;
+        while (window.pollEvent(event))
+        {
+            // Пользователь нажал на «крестик» и хочет закрыть окно?
+            if (event.type == Event::Closed) // тогда закрываем его
+                window.close();
+        } 
+        // Задаем цвет фона
+        window.clear(Color(250, 220, 100, 0));
+
+        // Создаем фигуру - круг радиусом 50
+        CircleShape shape(50.6);
+        // Закрашиваем наш круг 
+        shape.setFillColor(Color(230, 0, 230));
+        shape.move(15, 15);
+        window.draw(circle); // Отрисовка круга
+        window.display(); // Отрисовка окна 
+    }
+        window.clear();
+        window.draw(shape);
+        window.display();
+        dt = deltaClock.restart();
+    }
+
+    return 0;
+}
+
